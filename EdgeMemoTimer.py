@@ -14,6 +14,7 @@ def genPairs():
         while lett == pairs[len(pairs) - 1]:
             lett = letters[randint(0, 21)]
         pairs.append(lett)
+    # prints the letters in pairs, as they would be memorised
     r = 0
     for i in pairs:
         if r % 2 == 0:
@@ -24,15 +25,15 @@ def genPairs():
     return pairs
 
 def memo():
-    #prints a list of pairs, hides them on command, and then
-    #checks recall
+    #prints a list of pairs, hides them on command, and the checks recall
     input("Press enter to begin. Press enter again when you have memorised the list.")
     pairs = genPairs()
     start = time()
     input()
     end = time()
     t = str((end - start))[:-13]
-    print('\n'*50)
+    print('\n'*50) # cheap way to hide the pair list while you recall
+    # checks recall against the correct pairs
     recall = input('Type memo here (no spaces): ')
     recall = [x.upper() for x in recall]
     if recall == pairs:
@@ -41,6 +42,7 @@ def memo():
         print('Incorrect ' + t + 's')
         if len(pairs) != len(recall):
             print('Length of recall does not match pairs')
+        # Displays errors in recall, caps for incorrect letters, lower case for correct letters
         errors = []
         for i in range(min(len(pairs), len(recall))):
             if pairs[i] == recall[i]:
