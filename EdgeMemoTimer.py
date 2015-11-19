@@ -74,7 +74,6 @@ print('Press enter when prompted to generate a sequence to memo. Press enter aga
 
 while end.lower() != 'q':
     solveNumber += 1
-    print(solves)
     if end.lower() == 's':
         stats()
     else:
