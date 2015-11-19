@@ -57,9 +57,9 @@ def memo():
 
 def stats():
     allTimes = [solves[x][0] for x in solves]
-    print('Mean of all attempts: ' + str(sum(allTimes)/len(allTtimes))[-13])
+    print('Mean of all attempts: ' + str(sum(allTimes)/len(allTimes))[-13])
     correctTimes = [solves[x][0] for x in solves if solves[x][1] == True]
-    print('Mean of correct attempts: ' + str(sum(allTimes)/len(allTtimes))[-13])
+    print('Mean of correct attempts: ' + str(sum(allTimes)/len(allTimes))[-13])
 
 # start
 
