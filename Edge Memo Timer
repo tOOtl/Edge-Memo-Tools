@@ -38,13 +38,17 @@ def memo():
     if recall == pairs:
         print('Correct ' + t + 's')
     else:
-        print('Incorrect ' + t + 's') #Add something that shows where your errors were
+        print('Incorrect ' + t + 's')
+        if len(pairs) != len(recall):
+            print('Length of recall does not match pairs')
         errors = []
-        for i in range(len(pairs)):
+        for i in range(min(len(pairs), len(recall))):
             if pairs[i] == recall[i]:
-                errors.append(pairs[i].lower)
+                errors.append(pairs[i].lower())
             else:
-                errors.append(pairs[i].upper)
-        print('Errors: ' + errors.join(''))
+                errors.append(pairs[i].upper())
+        if len(pairs) > len(recall):
+            errors.append(''.join(pairs)[-(len(pairs) - len(recall)):])
+        print('Errors in caps: ' + ''.join(errors))
                    
 memo()
