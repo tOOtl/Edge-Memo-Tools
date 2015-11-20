@@ -1,5 +1,5 @@
 from random import randint, gauss
-from time import time
+from time import time, sleep
 
 letters = "A B C D E F G H I J L M N O P Q R S T V W X".split()
 
@@ -14,6 +14,9 @@ def genPairs():
         while lett == pairs[len(pairs) - 1]:
             lett = letters[randint(0, 21)]
         pairs.append(lett)
+    return pairs
+
+def printPairs(pairs):
     # prints the letters in pairs, as they would be memorised
     r = 0
     for i in pairs:
@@ -21,14 +24,15 @@ def genPairs():
             print(i, end = '')
         else:
             print(i, end = ' ')
+            sleep(0.2)
         r += 1
-    return pairs
 
 def memo():
     #prints a list of pairs, hides them on command, and the checks recall
     input("Press enter.")
     pairs = genPairs()
     start = time()
+    printPairs(pairs)
     input()
     end = time()
     t = str((end - start))[:-13]
@@ -68,7 +72,8 @@ def decimalTrim(times):
         return
     else:
         return (integralLength + 2)
-
+    
+    
 
 # start
 
@@ -90,3 +95,5 @@ while end.lower() != 'q':
     end = input('Enter "q" to quit, "s" to view stats, or press enter for another letter sequence.')
 
 stats()
+
+
