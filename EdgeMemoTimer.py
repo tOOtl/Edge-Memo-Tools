@@ -57,9 +57,18 @@ def memo():
 
 def stats():
     allTimes = [solves[x][0] for x in solves]
-    print('Mean of all attempts: ' + str(sum(allTimes)/len(allTimes))[-13])
+    print('Mean of all attempts: ' + str(sum(allTimes)/len(allTimes))[:decimalTrim(allTimes)])
     correctTimes = [solves[x][0] for x in solves if solves[x][1] == True]
-    print('Mean of correct attempts: ' + str(sum(allTimes)/len(allTimes))[-13])
+    print('Mean of correct attempts: ' + str(sum(correctTimes)/len(correctTimes))[:decimalTrim(correctTimes)])
+
+def decimalTrim(times):
+    divLength = len(str(sum(times)/len(times)))
+    integralLength = len((str((sum(times)/len(times))//1)))
+    if divLength < integralLength + 2:
+        return
+    else:
+        return (integralLength + 2)
+
 
 # start
 
